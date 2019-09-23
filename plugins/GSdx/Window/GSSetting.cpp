@@ -43,18 +43,16 @@ const char* dialog_message(int ID, bool* updateText) {
 				"Trilinear:\nUse OpenGL trilinear interpolation when PS2 uses mipmaps.\n\n"
 				"Trilinear Forced:\nAlways enable full trilinear interpolation. Warning Slow!\n\n";
 		case IDC_CRC_LEVEL:
-			return "Control the number of Auto-CRC hacks applied to games.\n\n"
-				"Automatic:\nAutomatically sets the recommended CRC hack level based on the selected renderer.\n"
+			return "Control the number of Auto-CRC fixes and hacks applied to games.\n\n"
+				"Automatic:\nAutomatically sets the recommended CRC level based on the selected renderer.\n"
 				"This is the recommended setting.\n"
 				"Partial will be selected for OpenGL.\nFull will be selected for Direct3D.\n\n"
-				"None:\nRemove all CRC hacks.\n\n"
-				"Minimum:\nEnable a couple of CRC hacks.\n\n"
+				"None:\nRemove all CRC rendering fixes and hacks.\n\n"
+				"Minimum:\nEnables CRC lookup for special post processing effects.\n\n"
 				"Partial:\nFor an optimal experience with OpenGL.\n\n"
 				"Full:\nFor an optimal experience with Direct3D.\n\n"
 				"Aggressive:\nUse more aggressive CRC hacks.\n"
-				"Removes effects in some games which make the image appear sharper/clearer.\n"
-				"Affected games: AC4, DBZBT 2 & 3, FF games, GOW games, OnimushaDoD, RDRevolver, RE4, SoTC, SMT3, SMTDDS1, SMTDDS2.\n"
-				"Works as a speedhack for: BleachBB, Kunoichi, Steambot Chronicles.";
+				"Removes effects in some games which make the image appear sharper/clearer.";
 		case IDC_SKIPDRAWHACK:
 		case IDC_SKIPDRAWHACKEDIT:
 		case IDC_SKIPDRAWOFFSET:
@@ -144,8 +142,7 @@ const char* dialog_message(int ID, bool* updateText) {
 				"Note: OpenGL HW renderer is able to handle Jak shadows at full speed without this option.";
 		case IDC_AUTO_FLUSH_SW:
 			return "Force a primitive flush when a framebuffer is also an input texture.\n"
-				"Fixes some processing effects such as the shadows in the Jak series and radiosity in GTA:SA.\n"
-				"Warning: It's very costly on the performance.";
+				"Fixes some processing effects such as the shadows in the Jak series and radiosity in GTA:SA.";
 		case IDC_SAFE_FEATURES:
 			return "This option disables multiple safe features.\n\n"
 				"Disables accurate Unscale Point and Line rendering.\n"
