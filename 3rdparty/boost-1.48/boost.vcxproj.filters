@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="readme.txt" />
+    <None Include="libs\thread\win32\timeconv.inl">
+      <Filter>thread\win32</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="system">
+      <UniqueIdentifier>{52f4cb82-5c37-4ac3-b5ae-8a6f9e8170b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{3f38f980-7008-4dff-9352-630f3afb7fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread\win32">
+      <UniqueIdentifier>{56db3aef-7fbd-49a2-9627-048ccc08f1bd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libs\system\local_free_on_destruction.hpp">
+      <Filter>system</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="libs\system\error_code.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\thread\win32\thread.cpp">
+      <Filter>thread\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\thread\win32\tss_pe.cpp">
+      <Filter>thread\win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

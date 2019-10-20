@@ -895,6 +895,9 @@
     <ResourceCompile Include="..\wxResources.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\3rdparty\boost-1.48\boost.vcxproj">
+      <Project>{85fe9cf7-195f-4705-ab7a-3713a40f719d}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\3rdparty\w32pthreads\pthreads.vcxproj">
       <Project>{26511268-2902-4997-8421-ecd7055f9e28}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
