@@ -598,6 +598,7 @@ void AppConfig::LoadSave( IniInterface& ini )
 	BaseFilenames	.LoadSave( ini );
 	GSWindow		.LoadSave( ini );
 	Framerate		.LoadSave( ini );
+	Net				.LoadSave( ini );
 
 	ini.Flush();
 }

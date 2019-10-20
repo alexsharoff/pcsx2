@@ -22,6 +22,8 @@
 #include "Dialogs/ModalPopups.h"
 #include "IsoDropTarget.h"
 
+#include "Netplay/NetplayPlugin.h"
+
 #include <wx/iconbndl.h>
 
 #if _MSC_VER || defined(LINUX_PRINT_SVN_NUMBER)
@@ -208,6 +210,8 @@ void MainEmuFrame::ConnectMenus()
 
 	ConnectMenu( MenuId_Boot_CDVD,			Menu_BootCdvd_Click );
 	ConnectMenu( MenuId_Boot_CDVD2,			Menu_BootCdvd2_Click );
+	ConnectMenu( MenuId_Boot_Net,			Menu_BootNet_Click );
+	ConnectMenu( MenuId_Boot_Replay,		Menu_BootReplay_Click );
 	ConnectMenu( MenuId_Boot_ELF,			Menu_OpenELF_Click );
 	ConnectMenu( MenuId_IsoBrowse,			Menu_IsoBrowse_Click );
 	ConnectMenu( MenuId_EnableBackupStates, Menu_EnableBackupStates_Click );
@@ -400,6 +404,10 @@ MainEmuFrame::MainEmuFrame(wxWindow* parent, const wxString& title)
 
 	m_menuSys.Append(MenuId_Boot_CDVD2,		_("Initializing..."));
 
+	m_menuSys.Append(MenuId_Boot_Net,		_("Initializing..."));
+
+	m_menuSys.Append(MenuId_Boot_Replay,	_("Initializing..."));
+
 	m_menuSys.Append(MenuId_Boot_ELF,		_("Run ELF..."),
 		_("For running raw PS2 binaries directly"));
 
@@ -570,6 +578,8 @@ void MainEmuFrame::ApplyCoreStatus()
 	wxMenuItem* susres	= menubar.FindItem( MenuId_Sys_SuspendResume );
 	wxMenuItem* cdvd	= menubar.FindItem( MenuId_Boot_CDVD );
 	wxMenuItem* cdvd2	= menubar.FindItem( MenuId_Boot_CDVD2 );
+	wxMenuItem* net		= menubar.FindItem( MenuId_Boot_Net );
+	wxMenuItem* replay	= menubar.FindItem( MenuId_Boot_Replay );
 	wxMenuItem* restart	= menubar.FindItem( MenuId_Sys_Restart );
 
 	// [TODO] : Ideally each of these items would bind a listener instance to the AppCoreThread
@@ -577,7 +587,7 @@ void MainEmuFrame::ApplyCoreStatus()
 
 	bool vm = SysHasValidState();
 
-	if( susres )
+	if( susres && !g_Conf->Net.IsEnabled && !g_Conf->Replay.IsEnabled)
 	{
 		if( !CoreThread.IsClosing() )
 		{
@@ -641,6 +651,24 @@ void MainEmuFrame::ApplyCoreStatus()
 			cdvd2->SetText(_("Boot CDVD (fast)"));
 			cdvd2->SetHelp(_("Use fast boot to skip PS2 startup and splash screens"));
 		}
+	}
+	if( net )
+	{
+		if( vm )
+		{
+			net->SetText(_("Reboot Netplay"));
+			net->SetHelp(_(""));
+		}
+		else
+		{
+			net->SetText(_("Boot Netplay"));
+			net->SetHelp(_(""));
+		}
+	}
+	if( replay )
+	{
+		replay->SetText(_("Open Replay"));
+		replay->SetHelp(_(""));
 	}
 
 	menubar.Enable( MenuId_Sys_Shutdown, SysHasValidState() || CorePlugins.AreAnyInitialized() );
