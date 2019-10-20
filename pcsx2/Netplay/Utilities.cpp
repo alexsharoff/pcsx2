@@ -1,6 +1,7 @@
 #include "PrecompiledHeader.h"
 #include "Utilities.h"
-#include "zlib\zlib.h"
+#include "App.h"
+#include "zlib/zlib.h"
 #include "ps2/BiosTools.h"
 #include "Elfheader.h"
 #include "CDVD/CDVD.h"

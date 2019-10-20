@@ -1,8 +1,8 @@
 #pragma once
-#include "App.h"
 #include "EmulatorState.h"
 #include "Utilities.h"
 #include "Message.h"
+#include <deque>
 
 enum ReplayMode
 {

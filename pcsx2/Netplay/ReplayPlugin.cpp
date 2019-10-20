@@ -3,7 +3,6 @@
 #include "Replay.h"
 #include "Utilities.h"
 #include "App.h"
-#include <sstream>
 
 class ReplayPlugin : public IReplayPlugin
 {
@@ -29,11 +28,10 @@ public:
 				{
 					if(memcmp(_replay.SyncState().biosVersion, state->biosVersion, sizeof(state->biosVersion)))
 					{
-						std::stringstream ss;
-						ss << "REPLAY: Incompatible BIOS detected. Please use ";
-						ss.write(_replay.SyncState().biosVersion, sizeof(state->biosVersion));
+						wxString msg = wxT("REPLAY: Incompatible BIOS detected. Please use ") + 
+								wxString(_replay.SyncState().biosVersion, wxConvUTF8, sizeof(state->biosVersion));
 						Stop();
-						_console.Error(ss.str().c_str());
+						_console.Error(msg);
 						return;
 					}
 					if(memcmp(_replay.SyncState().discId, state->discId, sizeof(state->discId)))

@@ -1,5 +1,6 @@
 #include "PrecompiledHeader.h"
 #include "Replay.h"
+#include <wx/file.h>
 #include <fstream>
 #include <sstream>
 #include <streambuf>

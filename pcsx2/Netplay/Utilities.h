@@ -1,5 +1,5 @@
 #pragma once
-#include "App.h"
+#include "AppConfig.h"
 #include "EmulatorState.h"
 #include <vector>
 #include <boost/shared_ptr.hpp>
